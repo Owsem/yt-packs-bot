@@ -3,6 +3,10 @@ import { registerStartCommand } from "./commands/start.js";
 import { registerPacksCommand } from "./commands/packs.js";
 import { registerBuyHandler } from "./commands/buy.js";
 import { registerHelpCommand } from "./commands/help.js";
+import { registerMyPurchasesCommand } from "./commands/mypurchases.js";
+import { registerSupportCommand } from "./commands/support.js";
+import { registerSocialCommand } from "./commands/social.js";
+
 
 // ADMIN
 import { registerAdminMenu } from "./admin/adminMenu.js";
@@ -25,6 +29,10 @@ registerStartCommand(bot);
 registerPacksCommand(bot);
 registerBuyHandler(bot);
 registerHelpCommand(bot);
+registerMyPurchasesCommand(bot);
+registerSupportCommand(bot);
+registerSocialCommand(bot);
+
 
 // Admin modules
 registerAdminMenu(bot);
