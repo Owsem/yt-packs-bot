@@ -5,7 +5,7 @@ export const registerStartCommand = (bot) => {
 
     await bot.sendMessage(
       chatId,
-      `سلام ${firstName} 👋\n\nبه ربات پک‌های یوتیوب خوش اومدی.\n\nبرای دیدن پک‌ها /packs رو بزن.`
+      `Hey ${firstName} 👋\n\nWelcome to the YouTube packs bot.\n\nUse /packs to see available packs.`
     );
   });
 };
