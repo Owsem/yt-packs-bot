@@ -4,7 +4,7 @@ export const registerHelpCommand = (bot) => {
 
     await bot.sendMessage(
       chatId,
-      "دستورات موجود:\n\n/start – شروع\n/packs – لیست پک‌ها\n/help – راهنما"
+      "Available commands:\n\n/start – Start the bot\n/packs – List available packs\n/help – Show this help"
     );
   });
 };
