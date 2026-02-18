@@ -1,11 +1,29 @@
 import dotenv from "dotenv";
-import app from "./src/app.js";
-
 dotenv.config();
 
-const PORT = process.env.PORT || 3000;
+import http from "http";
+import connectDB from "./src/database/connect.js";
+import "./src/bot.js"; // just importing starts the bot
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+const PORT = process.env.PORT || 10000;
 
+const startServer = async () => {
+  try {
+    await connectDB();
+    console.log("✅ MongoDB connected");
+
+    const server = http.createServer((req, res) => {
+      res.writeHead(200, { "Content-Type": "text/plain" });
+      res.end("Bot is running");
+    });
+
+    server.listen(PORT, () => {
+      console.log(`✅ Server listening on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error("❌ Failed to start server:", error.message);
+    process.exit(1);
+  }
+};
+
+startServer();
