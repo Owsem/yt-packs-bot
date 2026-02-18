@@ -8,7 +8,7 @@ export const registerPacksCommand = (bot) => {
     const themes = await Theme.find({ isActive: true }).sort({ createdAt: -1 });
 
     if (!themes.length) {
-      await bot.sendMessage(chatId, "فعلاً هیچ پکی موجود نیست.");
+      await bot.sendMessage(chatId, "No packs are available right now.");
       return;
     }
 
@@ -19,7 +19,7 @@ export const registerPacksCommand = (bot) => {
       }
     ]);
 
-    await bot.sendMessage(chatId, "پک‌های موجود:", {
+    await bot.sendMessage(chatId, "Available packs:", {
       reply_markup: {
         inline_keyboard: keyboard
       }
