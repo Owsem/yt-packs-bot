@@ -9,7 +9,7 @@ export const registerBuyHandler = (bot) => {
 
     const slug = data.replace("buy_", "");
 
-    await bot.answerCallbackQuery(query.id, { text: "در حال پردازش خرید..." });
+    await bot.answerCallbackQuery(query.id, { text: "Processing your purchase..." });
 
     await deliverThemeToUser(bot, query.from, slug, chatId);
   });
