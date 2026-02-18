@@ -20,4 +20,20 @@ export const protect = async (req, res, next) => {
       req.user = await User.findById(decoded.id).select("-password");
 
       return next();
-    } catch
+    } catch (error) {
+      return res.status(401).json({ message: "Not authorized, token failed" });
+    }
+  }
+
+  if (!token) {
+    return res.status(401).json({ message: "Not authorized, no token" });
+  }
+};
+
+// ADMIN CHECK
+export const admin = (req, res, next) => {
+  if (req.user && req.user.isAdmin === true) {
+    return next();
+  }
+  return res.status(403).json({ message: "Admin access only" });
+};
